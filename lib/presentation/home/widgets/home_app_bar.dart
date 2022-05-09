@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:leske_chat/presentation/core/colors.dart';
-import 'package:leske_chat/presentation/core/constands.dart';
-import 'package:leske_chat/presentation/widgets/custom_icon_btn.dart';
+import '../../core/colors.dart';
+import '../../core/constands.dart';
+import '../../widgets/custom_icon_btn.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:leske_chat/presentation/core/colors.dart';
-import 'package:leske_chat/presentation/home/widgets/contacts_list.dart';
-import 'package:leske_chat/presentation/home/widgets/home_app_bar.dart';
+import 'fab_button.dart';
+import 'widgets/contacts_list.dart';
+import 'widgets/home_app_bar.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({Key? key}) : super(key: key);
@@ -9,11 +9,18 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
+      child: Stack(
         children: [
-          HomeAppBar(),
-          Expanded(
-            child: ContactTileListView(),
+          Column(
+            children: [
+              HomeAppBar(),
+              Expanded(child: ContactTileListView()),
+            ],
+          ),
+          Positioned(
+            bottom: 20,
+            right: 20,
+            child: FAButton(),
           ),
         ],
       ),

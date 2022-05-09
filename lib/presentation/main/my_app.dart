@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:leske_chat/presentation/core/colors.dart';
-import 'package:leske_chat/presentation/home/screen_home.dart';
+import '../core/colors.dart';
+import '../home/screen_home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

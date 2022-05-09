@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leske_chat/presentation/core/constands.dart';
+import '../../core/constands.dart';
 
 import '../../core/colors.dart';
 import 'contact_tile.dart';
@@ -18,7 +18,7 @@ class ContactTileListView extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(5, 20, 25, 0),
+        padding: const EdgeInsets.fromLTRB(5, 20, 25, 50),
         child: ListView.separated(
           itemBuilder: (context, index) {
             return ContacTile(
@@ -26,7 +26,7 @@ class ContactTileListView extends StatelessWidget {
               profileImage: 'https://picsum.photos/seed/picsum/200',
             );
           },
-          separatorBuilder: (context, index) => kHeight,
+          separatorBuilder: (context, index) => kHeight20,
           itemCount: 10,
         ),
       ),

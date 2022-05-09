@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leske_chat/presentation/core/constands.dart';
+import '../../core/constands.dart';
 
 import '../../core/colors.dart';
 
