@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../core/colors.dart';
+import '../home/screen_home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -9,14 +11,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'LeskeChat',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
+        extendBody: true,
+        backgroundColor: AppColors.primaryBackground,
+        body: ScreenHome(),
       ),
     );
   }
