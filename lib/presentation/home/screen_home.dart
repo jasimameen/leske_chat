@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leske_chat/presentation/core/colors.dart';
+import 'package:leske_chat/presentation/home/widgets/contacts_list.dart';
 import 'package:leske_chat/presentation/home/widgets/home_app_bar.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -12,15 +13,7 @@ class ScreenHome extends StatelessWidget {
         children: [
           HomeAppBar(),
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.secondaryBackground,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50),
-                  topRight: Radius.circular(50),
-                ),
-              ),
-            ),
+            child: ContactTileListView(),
           ),
         ],
       ),
