@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'LeskeChat',
       home: Scaffold(
-        extendBody: true,
         backgroundColor: AppColors.primaryBackground,
         body: ScreenHome(),
       ),
