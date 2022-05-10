@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart' show SizedBox;
 
+// empty
+const kNullWidget = SizedBox();
+
 // width
 const kWidth = SizedBox(width: 10);
 const kWidth20 = SizedBox(width: 20);

@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'fab_button.dart';
 import 'widgets/contacts_list.dart';
-import 'widgets/home_app_bar.dart';
+import '../widgets/home_app_bar.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({Key? key}) : super(key: key);
@@ -13,7 +14,11 @@ class ScreenHome extends StatelessWidget {
         children: [
           Column(
             children: [
-              HomeAppBar(),
+              CustomAppBar(
+                leadingIcon: CupertinoIcons.back,
+                title: 'Messages',
+                trailingIcon: CupertinoIcons.search,
+              ),
               Expanded(child: ContactTileListView()),
             ],
           ),
