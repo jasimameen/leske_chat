@@ -1,5 +1,10 @@
 import 'package:flutter/widgets.dart' show SizedBox;
 
+enum UiThemeMode {
+  light,
+  dark,
+}
+
 // empty
 const kNullWidget = SizedBox();
 

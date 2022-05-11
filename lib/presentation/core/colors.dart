@@ -13,6 +13,7 @@ class AppColors {
   static const Color secondaryBackground = Color(0xfff3f6fa);
 
   static const Color transparant = Colors.transparent;
+  static const Color blue = Colors.blue;
 
   // Text
   static const Color primaryText = Color(0xfff3f6fa);
