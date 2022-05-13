@@ -11,6 +11,7 @@ extension HexString on String {
 class AppColors {
   static const Color primaryBackground = Color(0xff212e42);
   static const Color secondaryBackground = Color(0xfff3f6fa);
+  static const Color accentBackground =  Color(0xff999fa3);
 
   static const Color transparant = Colors.transparent;
   static const Color blue = Colors.blue;

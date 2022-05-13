@@ -8,6 +8,7 @@ class CustomAppBar extends StatelessWidget {
   final UiThemeMode theme;
   final EdgeInsetsGeometry? padding;
   final String? title;
+  final String? profilePic;
   final IconData? leadingIcon;
   final IconData? trailingIcon;
   final TextStyle? textStyle;
@@ -17,6 +18,7 @@ class CustomAppBar extends StatelessWidget {
     this.theme = UiThemeMode.dark,
     this.padding,
     this.title,
+    this.profilePic,
     this.leadingIcon,
     this.trailingIcon,
     this.textStyle,
@@ -40,7 +42,9 @@ class CustomAppBar extends StatelessWidget {
       padding: padding ?? EdgeInsets.symmetric(vertical: 9),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Leading Icon Shows at the start
           leadingIcon != null
               ? CustomIconBtn(
                   onTap: () {},
@@ -49,17 +53,34 @@ class CustomAppBar extends StatelessWidget {
                   iconColor: btnColor,
                   backgroundColor: btnBgColor,
                 )
-              : SizedBox(),
-          Text(
-            title ?? '',
-            style: textStyle ??
-                TextStyle(
-                  color: fontColor,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'uroob',
-                ),
+              : Null(),
+
+          // if any profile Pic there option to show it
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundColor: AppColors.transparant,
+                backgroundImage:
+                    profilePic != null ? NetworkImage(profilePic!) : null,
+              ),
+              kWidth,
+
+              // title shows in center
+              Text(
+                title ?? '',
+                style: textStyle ??
+                    TextStyle(
+                      color: fontColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'uroob',
+                    ),
+              ),
+            ],
           ),
+
+          // trailing Icon Shows at the end
           trailingIcon != null
               ? CustomIconBtn(
                   onTap: () {},
@@ -68,7 +89,7 @@ class CustomAppBar extends StatelessWidget {
                   iconColor: btnColor,
                   backgroundColor: btnBgColor,
                 )
-              : SizedBox(),
+              : Null(),
         ],
       ),
     );

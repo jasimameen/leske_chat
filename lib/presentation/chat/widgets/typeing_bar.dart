@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:leske_chat/presentation/core/colors.dart';
-import 'package:leske_chat/presentation/widgets/custom_icon_btn.dart';
 
+import '../../core/colors.dart';
 import '../../core/constands.dart';
+import '../../widgets/custom_icon_btn.dart';
+import 'message_input_bar.dart';
 
 class TypingBar extends StatelessWidget {
   final UiThemeMode themeMode;
@@ -21,9 +22,9 @@ class TypingBar extends StatelessWidget {
       textColor = AppColors.darkText;
     }
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-        color: AppColors.btnDark,
+        color: Color.fromARGB(255, 26, 37, 53),
         borderRadius: BorderRadius.circular(50),
       ),
       child: Row(
@@ -38,9 +39,14 @@ class TypingBar extends StatelessWidget {
               textColor: textColor,
             ),
           ),
-          CustomIconBtn(
-            onTap: () {},
-            icon: CupertinoIcons.music_albums,
+          Transform.rotate(
+            angle: 45 / 180,
+            child: CustomIconBtn(
+              onTap: () {},
+              icon: Icons.attach_file,
+              size: 23,
+              iconColor: AppColors.secondaryText,
+            ),
           ),
           CustomIconBtn(
             onTap: () {},
@@ -49,38 +55,6 @@ class TypingBar extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class MessageInputBar extends StatelessWidget {
-  const MessageInputBar({
-    Key? key,
-    required this.textColor,
-  }) : super(key: key);
-
-  final Color textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: TextEditingController(),
-      decoration: InputDecoration(
-        hintText: "Message ",
-        hintStyle: TextStyle(
-          color: textColor,
-        ),
-        border: InputBorder.none,
-      ),
-      keyboardType: TextInputType.multiline,
-      style: TextStyle(color: textColor),
-      toolbarOptions: ToolbarOptions(
-        copy: true,
-        cut: true,
-        paste: true,
-        selectAll: true,
-      ),
-      maxLines: null,
     );
   }
 }

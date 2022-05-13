@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:leske_chat/presentation/core/constands.dart';
+import '../core/constands.dart';
 
 import '../core/colors.dart';
 
@@ -9,6 +9,7 @@ class CustomIconBtn extends StatelessWidget {
   final IconData icon;
   final UiThemeMode themeMode;
   final EdgeInsetsGeometry? margin;
+  final double? size;
   final Color? iconColor;
   final Color? backgroundColor;
   const CustomIconBtn({
@@ -17,6 +18,7 @@ class CustomIconBtn extends StatelessWidget {
     required this.icon,
     this.themeMode = UiThemeMode.dark,
     this.margin,
+    this.size,
     this.iconColor,
     this.backgroundColor,
   }) : super(key: key);
@@ -34,12 +36,12 @@ class CustomIconBtn extends StatelessWidget {
         padding: EdgeInsets.all(10),
         margin: margin,
         decoration: BoxDecoration(
-          color: backgroundColor ?? AppColors.btnDark,
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Icon(
           icon,
-          size: 28,
+          size: size ?? 28,
           color: iconColor ?? _iconColor,
         ),
       ),
