@@ -1,5 +1,4 @@
-import 'package:flutter/widgets.dart'
-    show BuildContext, SizedBox, StatelessWidget, Widget;
+import 'package:flutter/widgets.dart' show SizedBox;
 
 enum UiThemeMode {
   light,
@@ -7,10 +6,7 @@ enum UiThemeMode {
 }
 
 /// Empty class Returns a Empty SizedBox [Null]
-class Null extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => SizedBox();
-}
+class Null extends SizedBox {}
 
 // width
 const kWidth = SizedBox(width: 10);

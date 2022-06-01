@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import '../core/colors.dart';
 import '../core/constands.dart';
 import 'custom_icon_btn.dart';
@@ -66,7 +66,7 @@ class CustomAppBar extends StatelessWidget {
               ),
               kWidth,
 
-              // title shows in center
+              // title shows in center 
               Text(
                 title ?? '',
                 style: textStyle ??

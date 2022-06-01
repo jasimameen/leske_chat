@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'date_indicator.dart';
+import 'package:flutter/widgets.dart';
 
 import 'message_bubble.dart';
 

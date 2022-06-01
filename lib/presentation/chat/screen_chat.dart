@@ -12,7 +12,6 @@ class ScreenChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       body: Column(

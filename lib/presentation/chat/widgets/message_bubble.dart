@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'date_indicator.dart';
-import '../../core/constands.dart';
+
 import '../../core/colors.dart';
+import '../../core/constands.dart';
+import 'bubble_time_indicator.dart';
+import 'date_indicator.dart';
 
 enum MessageBubbleType {
   send,
@@ -59,6 +60,8 @@ class MessageBubble extends StatelessWidget {
                   bottomRight: Radius.circular(isSend ? 0 : 24),
                   bottomLeft: Radius.circular(24),
                 )),
+
+            /// this will be the text displayed on the message bubble
             child: Text(
               'this is an Example of ${bubbleType.toString()}How is this chat oh my buddy Iam checking is my content is properly displayed or not',
               style: GoogleFonts.ubuntuCondensed(
@@ -70,21 +73,12 @@ class MessageBubble extends StatelessWidget {
         ),
 
         // TimeIndicator
-        Align(
-          alignment: isSend ? Alignment.centerRight : Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.only(
-              left: isSend ? 0 : 25,
-              right: isSend ? 15 : 0,
-            ),
-            child: Text(
-              '12:33 AM',
-              style:
-                  GoogleFonts.ubuntuCondensed(color: AppColors.secondaryText),
-            ),
-          ),
+        BubbleTimeIndicator(
+          isSend: isSend,
+          time: '',
         )
       ],
     );
   }
 }
+
