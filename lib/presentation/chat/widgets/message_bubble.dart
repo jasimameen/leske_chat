@@ -63,7 +63,7 @@ class MessageBubble extends StatelessWidget {
 
             /// this will be the text displayed on the message bubble
             child: Text(
-              'this is an Example of ${bubbleType.toString()}How is this chat oh my buddy Iam checking is my content is properly displayed or not',
+              'Hei!...This is an Example of ${bubbleType.toString()}How is this chat oh my buddy Iam checking is my content is properly displayed or not',
               style: GoogleFonts.ubuntuCondensed(
                 color: textColor,
                 fontSize: 20,
@@ -81,4 +81,3 @@ class MessageBubble extends StatelessWidget {
     );
   }
 }
-

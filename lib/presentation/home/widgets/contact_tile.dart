@@ -6,12 +6,14 @@ import '../../core/colors.dart';
 
 class ContacTile extends StatelessWidget {
   final String? profileImage;
-  final int index;
+  final String title;
+  final void Function() onTap;
 
   const ContacTile({
     Key? key,
     this.profileImage,
-    required this.index,
+    required this.title,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -19,10 +21,7 @@ class ContacTile extends StatelessWidget {
     final double profileIconRadius = 65;
 
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ScreenChat()));
-      },
+      onTap: onTap,
       child: Row(
         children: [
           kWidth20,
@@ -41,7 +40,7 @@ class ContacTile extends StatelessWidget {
             child: ListTile(
               // Contact Name
               title: Text(
-                "User $index",
+                title ,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -65,7 +64,7 @@ class ContacTile extends StatelessWidget {
                     radius: 12.5,
                     backgroundColor: AppColors.primaryBackground,
                     child: Text(
-                      '$index',
+                      '0',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,

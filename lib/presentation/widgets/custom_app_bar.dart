@@ -59,14 +59,15 @@ class CustomAppBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
-                backgroundColor: AppColors.transparant,
-                backgroundImage:
-                    profilePic != null ? NetworkImage(profilePic!) : null,
-              ),
+              profilePic != null
+                  ? CircleAvatar(
+                      backgroundColor: AppColors.transparant,
+                      backgroundImage: NetworkImage(profilePic!),
+                    )
+                  : Null(),
               kWidth,
 
-              // title shows in center 
+              // title shows in center
               Text(
                 title ?? '',
                 style: textStyle ??
