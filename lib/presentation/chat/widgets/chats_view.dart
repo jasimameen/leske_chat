@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/chat/chat_bloc.dart';
 import 'message_bubble.dart';
 
 class ChatsView extends StatelessWidget {
@@ -7,16 +9,28 @@ class ChatsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: List.generate(
-        5,
-        (index) => Column(
-          children: [
-            MessageBubble(bubbleType: MessageBubbleType.send),
-            MessageBubble(bubbleType: MessageBubbleType.received),
-          ],
-        ),
-      ),
+    return BlocBuilder<ChatBloc, ChatState>(
+      builder: (context, state) {
+       
+
+        return state.messages.isNotEmpty 
+            ? ListView(
+                children: List.generate(
+                  state.messages.length,
+                  (index) {
+                    final type = state.messages[index].isSend
+                        ? MessageBubbleType.send
+                        : MessageBubbleType.received;
+
+                    return MessageBubble(
+                      messageText:state.messages[index].text,
+                      bubbleType: type,
+                    );
+                  },
+                ),
+              )
+            : SizedBox(child: Center(child: Text('No Conversations Yet!')));
+      },
     );
   }
 }

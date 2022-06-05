@@ -18,26 +18,29 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(int id) started,
     required TResult Function(BuildContext context, int id) navigateToChat,
     required TResult Function() sendMessage,
     required TResult Function() receiveMessage,
+    required TResult Function() typing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ChatEvent {
     required TResult Function(_NavigateToChat value) navigateToChat,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
+    required TResult Function(_Typing value) typing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ChatEvent {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ChatEvent {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,6 +94,7 @@ abstract class _$$_StartedCopyWith<$Res> {
   factory _$$_StartedCopyWith(
           _$_Started value, $Res Function(_$_Started) then) =
       __$$_StartedCopyWithImpl<$Res>;
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -98,60 +105,86 @@ class __$$_StartedCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
   @override
   _$_Started get _value => super._value as _$_Started;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_$_Started(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Started implements _Started {
-  const _$_Started();
+  const _$_Started(this.id);
+
+  @override
+  final int id;
 
   @override
   String toString() {
-    return 'ChatEvent.started()';
+    return 'ChatEvent.started(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType &&
+            other is _$_Started &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_StartedCopyWith<_$_Started> get copyWith =>
+      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(int id) started,
     required TResult Function(BuildContext context, int id) navigateToChat,
     required TResult Function() sendMessage,
     required TResult Function() receiveMessage,
+    required TResult Function() typing,
   }) {
-    return started();
+    return started(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
   }) {
-    return started?.call();
+    return started?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started();
+      return started(id);
     }
     return orElse();
   }
@@ -163,6 +196,7 @@ class _$_Started implements _Started {
     required TResult Function(_NavigateToChat value) navigateToChat,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
+    required TResult Function(_Typing value) typing,
   }) {
     return started(this);
   }
@@ -174,6 +208,7 @@ class _$_Started implements _Started {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
   }) {
     return started?.call(this);
   }
@@ -185,6 +220,7 @@ class _$_Started implements _Started {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -195,7 +231,12 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements ChatEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started(final int id) = _$_Started;
+
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_StartedCopyWith<_$_Started> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -273,10 +314,11 @@ class _$_NavigateToChat implements _NavigateToChat {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(int id) started,
     required TResult Function(BuildContext context, int id) navigateToChat,
     required TResult Function() sendMessage,
     required TResult Function() receiveMessage,
+    required TResult Function() typing,
   }) {
     return navigateToChat(context, id);
   }
@@ -284,10 +326,11 @@ class _$_NavigateToChat implements _NavigateToChat {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
   }) {
     return navigateToChat?.call(context, id);
   }
@@ -295,10 +338,11 @@ class _$_NavigateToChat implements _NavigateToChat {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
     required TResult orElse(),
   }) {
     if (navigateToChat != null) {
@@ -314,6 +358,7 @@ class _$_NavigateToChat implements _NavigateToChat {
     required TResult Function(_NavigateToChat value) navigateToChat,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
+    required TResult Function(_Typing value) typing,
   }) {
     return navigateToChat(this);
   }
@@ -325,6 +370,7 @@ class _$_NavigateToChat implements _NavigateToChat {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
   }) {
     return navigateToChat?.call(this);
   }
@@ -336,6 +382,7 @@ class _$_NavigateToChat implements _NavigateToChat {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
     required TResult orElse(),
   }) {
     if (navigateToChat != null) {
@@ -396,10 +443,11 @@ class _$_SendMessage implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(int id) started,
     required TResult Function(BuildContext context, int id) navigateToChat,
     required TResult Function() sendMessage,
     required TResult Function() receiveMessage,
+    required TResult Function() typing,
   }) {
     return sendMessage();
   }
@@ -407,10 +455,11 @@ class _$_SendMessage implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
   }) {
     return sendMessage?.call();
   }
@@ -418,10 +467,11 @@ class _$_SendMessage implements _SendMessage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -437,6 +487,7 @@ class _$_SendMessage implements _SendMessage {
     required TResult Function(_NavigateToChat value) navigateToChat,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
+    required TResult Function(_Typing value) typing,
   }) {
     return sendMessage(this);
   }
@@ -448,6 +499,7 @@ class _$_SendMessage implements _SendMessage {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
   }) {
     return sendMessage?.call(this);
   }
@@ -459,6 +511,7 @@ class _$_SendMessage implements _SendMessage {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -513,10 +566,11 @@ class _$_receiveMessage implements _receiveMessage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(int id) started,
     required TResult Function(BuildContext context, int id) navigateToChat,
     required TResult Function() sendMessage,
     required TResult Function() receiveMessage,
+    required TResult Function() typing,
   }) {
     return receiveMessage();
   }
@@ -524,10 +578,11 @@ class _$_receiveMessage implements _receiveMessage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
   }) {
     return receiveMessage?.call();
   }
@@ -535,10 +590,11 @@ class _$_receiveMessage implements _receiveMessage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int id)? started,
     TResult Function(BuildContext context, int id)? navigateToChat,
     TResult Function()? sendMessage,
     TResult Function()? receiveMessage,
+    TResult Function()? typing,
     required TResult orElse(),
   }) {
     if (receiveMessage != null) {
@@ -554,6 +610,7 @@ class _$_receiveMessage implements _receiveMessage {
     required TResult Function(_NavigateToChat value) navigateToChat,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
+    required TResult Function(_Typing value) typing,
   }) {
     return receiveMessage(this);
   }
@@ -565,6 +622,7 @@ class _$_receiveMessage implements _receiveMessage {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
   }) {
     return receiveMessage?.call(this);
   }
@@ -576,6 +634,7 @@ class _$_receiveMessage implements _receiveMessage {
     TResult Function(_NavigateToChat value)? navigateToChat,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
     required TResult orElse(),
   }) {
     if (receiveMessage != null) {
@@ -590,8 +649,131 @@ abstract class _receiveMessage implements ChatEvent {
 }
 
 /// @nodoc
+abstract class _$$_TypingCopyWith<$Res> {
+  factory _$$_TypingCopyWith(_$_Typing value, $Res Function(_$_Typing) then) =
+      __$$_TypingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TypingCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
+    implements _$$_TypingCopyWith<$Res> {
+  __$$_TypingCopyWithImpl(_$_Typing _value, $Res Function(_$_Typing) _then)
+      : super(_value, (v) => _then(v as _$_Typing));
+
+  @override
+  _$_Typing get _value => super._value as _$_Typing;
+}
+
+/// @nodoc
+
+class _$_Typing implements _Typing {
+  const _$_Typing();
+
+  @override
+  String toString() {
+    return 'ChatEvent.typing()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Typing);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) started,
+    required TResult Function(BuildContext context, int id) navigateToChat,
+    required TResult Function() sendMessage,
+    required TResult Function() receiveMessage,
+    required TResult Function() typing,
+  }) {
+    return typing();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int id)? started,
+    TResult Function(BuildContext context, int id)? navigateToChat,
+    TResult Function()? sendMessage,
+    TResult Function()? receiveMessage,
+    TResult Function()? typing,
+  }) {
+    return typing?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? started,
+    TResult Function(BuildContext context, int id)? navigateToChat,
+    TResult Function()? sendMessage,
+    TResult Function()? receiveMessage,
+    TResult Function()? typing,
+    required TResult orElse(),
+  }) {
+    if (typing != null) {
+      return typing();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NavigateToChat value) navigateToChat,
+    required TResult Function(_SendMessage value) sendMessage,
+    required TResult Function(_receiveMessage value) receiveMessage,
+    required TResult Function(_Typing value) typing,
+  }) {
+    return typing(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NavigateToChat value)? navigateToChat,
+    TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
+  }) {
+    return typing?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NavigateToChat value)? navigateToChat,
+    TResult Function(_SendMessage value)? sendMessage,
+    TResult Function(_receiveMessage value)? receiveMessage,
+    TResult Function(_Typing value)? typing,
+    required TResult orElse(),
+  }) {
+    if (typing != null) {
+      return typing(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Typing implements ChatEvent {
+  const factory _Typing() = _$_Typing;
+}
+
+/// @nodoc
 mixin _$ChatState {
   int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get profilePic => throw _privateConstructorUsedError;
+  List<Messages> get messages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatStateCopyWith<ChatState> get copyWith =>
@@ -602,7 +784,7 @@ mixin _$ChatState {
 abstract class $ChatStateCopyWith<$Res> {
   factory $ChatStateCopyWith(ChatState value, $Res Function(ChatState) then) =
       _$ChatStateCopyWithImpl<$Res>;
-  $Res call({int id});
+  $Res call({int id, String name, String profilePic, List<Messages> messages});
 }
 
 /// @nodoc
@@ -616,12 +798,27 @@ class _$ChatStateCopyWithImpl<$Res> implements $ChatStateCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
+    Object? profilePic = freezed,
+    Object? messages = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      profilePic: profilePic == freezed
+          ? _value.profilePic
+          : profilePic // ignore: cast_nullable_to_non_nullable
+              as String,
+      messages: messages == freezed
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Messages>,
     ));
   }
 }
@@ -632,7 +829,7 @@ abstract class _$$_ChatStateCopyWith<$Res> implements $ChatStateCopyWith<$Res> {
           _$_ChatState value, $Res Function(_$_ChatState) then) =
       __$$_ChatStateCopyWithImpl<$Res>;
   @override
-  $Res call({int id});
+  $Res call({int id, String name, String profilePic, List<Messages> messages});
 }
 
 /// @nodoc
@@ -648,12 +845,27 @@ class __$$_ChatStateCopyWithImpl<$Res> extends _$ChatStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
+    Object? profilePic = freezed,
+    Object? messages = freezed,
   }) {
     return _then(_$_ChatState(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      profilePic: profilePic == freezed
+          ? _value.profilePic
+          : profilePic // ignore: cast_nullable_to_non_nullable
+              as String,
+      messages: messages == freezed
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Messages>,
     ));
   }
 }
@@ -661,14 +873,29 @@ class __$$_ChatStateCopyWithImpl<$Res> extends _$ChatStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChatState implements _ChatState {
-  const _$_ChatState({required this.id});
+  const _$_ChatState(
+      {required this.id,
+      required this.name,
+      required this.profilePic,
+      required final List<Messages> messages})
+      : _messages = messages;
 
   @override
   final int id;
+  @override
+  final String name;
+  @override
+  final String profilePic;
+  final List<Messages> _messages;
+  @override
+  List<Messages> get messages {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
 
   @override
   String toString() {
-    return 'ChatState(id: $id)';
+    return 'ChatState(id: $id, name: $name, profilePic: $profilePic, messages: $messages)';
   }
 
   @override
@@ -676,12 +903,20 @@ class _$_ChatState implements _ChatState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChatState &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.profilePic, profilePic) &&
+            const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(profilePic),
+      const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
   @override
@@ -690,10 +925,20 @@ class _$_ChatState implements _ChatState {
 }
 
 abstract class _ChatState implements ChatState {
-  const factory _ChatState({required final int id}) = _$_ChatState;
+  const factory _ChatState(
+      {required final int id,
+      required final String name,
+      required final String profilePic,
+      required final List<Messages> messages}) = _$_ChatState;
 
   @override
   int get id => throw _privateConstructorUsedError;
+  @override
+  String get name => throw _privateConstructorUsedError;
+  @override
+  String get profilePic => throw _privateConstructorUsedError;
+  @override
+  List<Messages> get messages => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ChatStateCopyWith<_$_ChatState> get copyWith =>

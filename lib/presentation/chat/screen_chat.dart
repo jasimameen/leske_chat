@@ -12,8 +12,7 @@ import 'widgets/chats_view.dart';
 import 'widgets/typeing_bar.dart';
 
 class ScreenChat extends StatelessWidget {
-  final int id;
-  const ScreenChat({Key? key, required this.id}) : super(key: key);
+  const ScreenChat({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class ScreenChat extends StatelessWidget {
       backgroundColor: AppColors.primaryBackground,
       body: BlocBuilder<ChatBloc, ChatState>(
         builder: (context, state) {
-          final _data = User.fromJson(dummyUsers[id]);
+          final _data = User.fromJson(dummyUsers[state.id]);
           return Column(
             children: [
               // Top Bar (AppBar)

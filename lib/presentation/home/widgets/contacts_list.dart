@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leske_chat/application/chat/chat/model/user.dart';
@@ -32,6 +34,7 @@ class ContactTileListView extends StatelessWidget {
                   title: _data.name,
                   profileImage: _data.profilePic,
                   onTap: () {
+                    log("message from navigation page id == ${_data.id}");
                     context
                         .read<ChatBloc>()
                         .add(ChatEvent.navigateToChat(context, _data.id));

@@ -12,11 +12,13 @@ enum MessageBubbleType {
 }
 
 class MessageBubble extends StatelessWidget {
+  final String messageText;
   final MessageBubbleType bubbleType;
   final bool showDate;
 
   const MessageBubble({
     Key? key,
+    required this.messageText,
     required this.bubbleType,
     this.showDate = false,
   }) : super(key: key);
@@ -63,7 +65,8 @@ class MessageBubble extends StatelessWidget {
 
             /// this will be the text displayed on the message bubble
             child: Text(
-              'Hei!...This is an Example of ${bubbleType.toString()}How is this chat oh my buddy Iam checking is my content is properly displayed or not',
+              // 'Hei!...This is an Example of ${bubbleType.toString()}How is this chat oh my buddy Iam checking is my content is properly displayed or not',
+              messageText,
               style: GoogleFonts.ubuntuCondensed(
                 color: textColor,
                 fontSize: 20,
