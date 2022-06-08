@@ -38,7 +38,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     });
 
     on<_Typing>((event, emit) {
-      log('------------<>-<>-<>- Typing is called -----------<>-<>-<>');
+      log('Typing event called...');
     });
   }
 }
