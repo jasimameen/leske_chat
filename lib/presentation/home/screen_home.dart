@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'fab_button.dart';
 import 'widgets/contacts_list.dart';
 import '../widgets/custom_app_bar.dart';

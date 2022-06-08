@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:leske_chat/domain/chat/model/dummy_data.dart';
 
-import '../../application/chat/chat/model/user.dart';
-import '../../application/chat/chat/model/dummy_data.dart';
 import '../../application/chat/chat_bloc.dart';
 import '../core/colors.dart';
 import '../core/constands.dart';
@@ -20,7 +19,7 @@ class ScreenChat extends StatelessWidget {
       backgroundColor: AppColors.primaryBackground,
       body: BlocBuilder<ChatBloc, ChatState>(
         builder: (context, state) {
-          final _data = User.fromJson(dummyUsers[state.id]);
+          final _data = userList[state.id];
           return Column(
             children: [
               // Top Bar (AppBar)
@@ -52,7 +51,7 @@ class ScreenChat extends StatelessWidget {
               ),
 
               // TypingBar - for typing Messages attach media ..etc
-              TypingBar(),
+              TypingBar(id: state.id),
             ],
           );
         },

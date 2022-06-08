@@ -1,3 +1,8 @@
+import 'user.dart';
+
+List<User> userList = dummyUsers.map((e) => User.fromJson(e)).toList();
+
+/// Its a List of dummy Data of users in json format
 const dummyUsers = [
   {
     "id": 0,
@@ -5,11 +10,7 @@ const dummyUsers = [
     "profilePic":
         "https://www.mecgale.com/wp-content/uploads/2017/08/dummy-profile.png",
     "messages": [
-      {
-        "isSend": true,
-        "time": "12:05 AM",
-        "text": "Hei John"
-      },
+      {"isSend": true, "time": "12:05 AM", "text": "Hei John"},
       {
         "isSend": false,
         "time": "12:05 AM",
@@ -23,16 +24,8 @@ const dummyUsers = [
     "profilePic":
         "https://www.codegrepper.com/profile_images/100_100/66467_o2rZZntPkmWviuqRRlqHqSlW3cPGpenOIvJdQqNeKwNQbU9ERzbPCwP.jpg",
     "messages": [
-      {
-        "isSend": true,
-        "time": "12:05 AM",
-        "text": "Hi janko"
-      },
-      {
-        "isSend": true,
-        "time": "12:05 AM",
-        "text": "How are you"
-      },
+      {"isSend": true, "time": "12:05 AM", "text": "Hi janko"},
+      {"isSend": true, "time": "12:05 AM", "text": "How are you"},
       {
         "isSend": false,
         "time": "12:05 AM",
@@ -48,7 +41,8 @@ const dummyUsers = [
       {
         "isSend": true,
         "time": "12:05 AM",
-        "text": "Hi My friend this is a sample text message of type send Leskeboy"
+        "text":
+            "Hi My friend this is a sample text message of type send Leskeboy"
       },
       {
         "isSend": false,
@@ -63,16 +57,8 @@ const dummyUsers = [
     "profilePic":
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe8m1wl9-U5WPNJzFFqASOzSZPoAsrPfSuB2aF7sqGpQxy48woYfIAQucUlq5cQ_Ryfvg&usqp=CAU",
     "messages": [
-      {
-        "isSend": true,
-        "time": "12:05 AM",
-        "text": "Hi"
-      },
-      {
-        "isSend": false,
-        "time": "12:05 AM",
-        "text": "Hi Hows going my buddy"
-      },
+      {"isSend": true, "time": "12:05 AM", "text": "Hi"},
+      {"isSend": false, "time": "12:05 AM", "text": "Hi Hows going my buddy"},
       {
         "isSend": false,
         "time": "12:05 AM",

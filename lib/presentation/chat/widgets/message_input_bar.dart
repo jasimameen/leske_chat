@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:leske_chat/presentation/chat/widgets/typeing_bar.dart';
 
 import '../../../application/chat/chat_bloc.dart';
 
@@ -12,13 +13,12 @@ class MessageInputBar extends StatelessWidget {
   }) : super(key: key);
 
   final Color textColor;
-  TextEditingController _messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     DateTime _timeStamp = DateTime.now(); // store the current time
     return TextFormField(
-      controller: _messageController,
+      controller: TypingController.of(context)!.controller,
       decoration: InputDecoration(
         hintText: "Message ",
         hintStyle: TextStyle(
