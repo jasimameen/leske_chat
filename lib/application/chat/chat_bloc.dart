@@ -14,16 +14,15 @@ part 'chat_state.dart';
 
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
   ChatBloc() : super(ChatState.initial()) {
+      final userDatas = userList;
+
+      //
     on<_NavigateToChat>((event, emit) {
       Navigator.of(event.context).push(MaterialPageRoute(
         builder: (context) => ScreenChat(),
       ));
-      event.context.read<ChatBloc>().add(ChatEvent.started(event.id));
-    });
-
-    on<_Started>((event, emit) {
-      final current = userList[event.id];
-
+      // event.context.read<ChatBloc>().add(ChatEvent.started(event.id));
+      final current = userDatas[event.id];
       emit(
         state.copyWith(
           id: current.id,
@@ -34,12 +33,16 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       );
     });
 
+    // on<_Started>((event, emit) {
+
+    // });
+
     on<_SendMessage>((event, emit) {
       final value = Messages(isSend: true, time: 'time', text: event.message);
-      userList[event.id].messages.add(value);
+      userDatas[event.id].messages.add(value);
 
       emit(state.copyWith(
-        messages: userList[event.id].messages,
+        messages: userDatas[event.id].messages,
         changeState: !state.changeState,
       ));
     });

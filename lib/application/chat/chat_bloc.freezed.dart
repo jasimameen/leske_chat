@@ -19,7 +19,6 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context, int id) navigateToChat,
-    required TResult Function(int id) started,
     required TResult Function(int id, String message) sendMessage,
     required TResult Function() receiveMessage,
     required TResult Function(bool isTyping) typing,
@@ -28,7 +27,6 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -37,7 +35,6 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -47,7 +44,6 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NavigateToChat value) navigateToChat,
-    required TResult Function(_Started value) started,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
     required TResult Function(_Typing value) typing,
@@ -56,7 +52,6 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -65,7 +60,6 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -165,7 +159,6 @@ class _$_NavigateToChat implements _NavigateToChat {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context, int id) navigateToChat,
-    required TResult Function(int id) started,
     required TResult Function(int id, String message) sendMessage,
     required TResult Function() receiveMessage,
     required TResult Function(bool isTyping) typing,
@@ -177,7 +170,6 @@ class _$_NavigateToChat implements _NavigateToChat {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -189,7 +181,6 @@ class _$_NavigateToChat implements _NavigateToChat {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -205,7 +196,6 @@ class _$_NavigateToChat implements _NavigateToChat {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NavigateToChat value) navigateToChat,
-    required TResult Function(_Started value) started,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
     required TResult Function(_Typing value) typing,
@@ -217,7 +207,6 @@ class _$_NavigateToChat implements _NavigateToChat {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -229,7 +218,6 @@ class _$_NavigateToChat implements _NavigateToChat {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -250,156 +238,6 @@ abstract class _NavigateToChat implements ChatEvent {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_NavigateToChatCopyWith<_$_NavigateToChat> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
-  $Res call({int id});
-}
-
-/// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
-
-  @override
-  _$_Started get _value => super._value as _$_Started;
-
-  @override
-  $Res call({
-    Object? id = freezed,
-  }) {
-    return _then(_$_Started(
-      id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started(this.id);
-
-  @override
-  final int id;
-
-  @override
-  String toString() {
-    return 'ChatEvent.started(id: $id)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Started &&
-            const DeepCollectionEquality().equals(other.id, id));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context, int id) navigateToChat,
-    required TResult Function(int id) started,
-    required TResult Function(int id, String message) sendMessage,
-    required TResult Function() receiveMessage,
-    required TResult Function(bool isTyping) typing,
-  }) {
-    return started(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
-    TResult Function(int id, String message)? sendMessage,
-    TResult Function()? receiveMessage,
-    TResult Function(bool isTyping)? typing,
-  }) {
-    return started?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
-    TResult Function(int id, String message)? sendMessage,
-    TResult Function()? receiveMessage,
-    TResult Function(bool isTyping)? typing,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_NavigateToChat value) navigateToChat,
-    required TResult Function(_Started value) started,
-    required TResult Function(_SendMessage value) sendMessage,
-    required TResult Function(_receiveMessage value) receiveMessage,
-    required TResult Function(_Typing value) typing,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
-    TResult Function(_SendMessage value)? sendMessage,
-    TResult Function(_receiveMessage value)? receiveMessage,
-    TResult Function(_Typing value)? typing,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
-    TResult Function(_SendMessage value)? sendMessage,
-    TResult Function(_receiveMessage value)? receiveMessage,
-    TResult Function(_Typing value)? typing,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements ChatEvent {
-  const factory _Started(final int id) = _$_Started;
-
-  int get id => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -478,7 +316,6 @@ class _$_SendMessage implements _SendMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context, int id) navigateToChat,
-    required TResult Function(int id) started,
     required TResult Function(int id, String message) sendMessage,
     required TResult Function() receiveMessage,
     required TResult Function(bool isTyping) typing,
@@ -490,7 +327,6 @@ class _$_SendMessage implements _SendMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -502,7 +338,6 @@ class _$_SendMessage implements _SendMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -518,7 +353,6 @@ class _$_SendMessage implements _SendMessage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NavigateToChat value) navigateToChat,
-    required TResult Function(_Started value) started,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
     required TResult Function(_Typing value) typing,
@@ -530,7 +364,6 @@ class _$_SendMessage implements _SendMessage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -542,7 +375,6 @@ class _$_SendMessage implements _SendMessage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -608,7 +440,6 @@ class _$_receiveMessage implements _receiveMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context, int id) navigateToChat,
-    required TResult Function(int id) started,
     required TResult Function(int id, String message) sendMessage,
     required TResult Function() receiveMessage,
     required TResult Function(bool isTyping) typing,
@@ -620,7 +451,6 @@ class _$_receiveMessage implements _receiveMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -632,7 +462,6 @@ class _$_receiveMessage implements _receiveMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -648,7 +477,6 @@ class _$_receiveMessage implements _receiveMessage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NavigateToChat value) navigateToChat,
-    required TResult Function(_Started value) started,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
     required TResult Function(_Typing value) typing,
@@ -660,7 +488,6 @@ class _$_receiveMessage implements _receiveMessage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -672,7 +499,6 @@ class _$_receiveMessage implements _receiveMessage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -752,7 +578,6 @@ class _$_Typing implements _Typing {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context, int id) navigateToChat,
-    required TResult Function(int id) started,
     required TResult Function(int id, String message) sendMessage,
     required TResult Function() receiveMessage,
     required TResult Function(bool isTyping) typing,
@@ -764,7 +589,6 @@ class _$_Typing implements _Typing {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -776,7 +600,6 @@ class _$_Typing implements _Typing {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context, int id)? navigateToChat,
-    TResult Function(int id)? started,
     TResult Function(int id, String message)? sendMessage,
     TResult Function()? receiveMessage,
     TResult Function(bool isTyping)? typing,
@@ -792,7 +615,6 @@ class _$_Typing implements _Typing {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_NavigateToChat value) navigateToChat,
-    required TResult Function(_Started value) started,
     required TResult Function(_SendMessage value) sendMessage,
     required TResult Function(_receiveMessage value) receiveMessage,
     required TResult Function(_Typing value) typing,
@@ -804,7 +626,6 @@ class _$_Typing implements _Typing {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
@@ -816,7 +637,6 @@ class _$_Typing implements _Typing {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NavigateToChat value)? navigateToChat,
-    TResult Function(_Started value)? started,
     TResult Function(_SendMessage value)? sendMessage,
     TResult Function(_receiveMessage value)? receiveMessage,
     TResult Function(_Typing value)? typing,
